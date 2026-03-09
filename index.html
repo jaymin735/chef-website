@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chef Joharudin Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+        
+        .body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0c0c0c;
+            scroll-behavior: smooth;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+        }
+        
+        .dish-card:hover .dish-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .dish-overlay {
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .timeline-item:not(:last-child):after {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 32px;
+            height: calc(100% - 32px);
+            width: 2px;
+            background: #e2e8f0;
+        }
+        
+        .testimonial-card {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+        
+        .menu-item {
+            border-bottom: 1px dashed #0c0c0c;
+            padding-bottom: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .menu-item:last-child {
+            border-bottom: none;
+        }
+        
+        .skill-bar {
+            background-color: #202020;
+            height: 8px;
+            border-radius: 4px;
+        }
+        
+        .skill-progress {
+            background-color: #e2e2e2;
+            height: 100%;
+            border-radius: 4px;
+            transition: width 1s ease;
+        }
+    </style>
+
+</head>
+<body class="bg-black text-gray-200 ">
+
+    <!-- Navigation -->
+    <nav class="bg-black shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold heading-font text-white">Chef Joharudin</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="hover:text-amber-600 transition">About</a>
+                    <a href="#experience" class="hover:text-amber-600 transition">Experience</a>
+                    <a href="#skills" class="hover:text-amber-600 transition">Skills</a>
+                    <a href="#portfolio" class="hover:text-amber-600 transition">Portfolio</a>
+                    <a href="#menu" class="hover:text-amber-600 transition">Signature Menu</a>
+                    <a href="#testimonials" class="hover:text-amber-600 transition">Testimonials</a>
+                    <a href="#contact" class="hover:text-amber-600 transition">Contact</a>
+                </div>
+
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-black pb-4 px-4 shadow-lg">
+                <div class="flex flex-col space-y-3">
+                    <a href="#about" class=" hover:text-amber-600 transition">About</a>
+                    <a href="#experience" class="hover:text-amber-600 transition">Experience</a>
+                    <a href="#skills" class="hover:text-amber-600 transition">Skills</a>
+                    <a href="#portfolio" class="hover:text-amber-600 transition">Portfolio</a>
+                    <a href="#menu" class="hover:text-amber-600 transition">Signature Menu</a>
+                    <a href="#testimonials" class="hover:text-amber-600 transition">Testimonials</a>
+                    <a href="#contact" class="hover:text-amber-600 transition">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('web_img/rn_image_picker_lib_temp_711369c2-d04e-496d-9e9b-8795a4175934.webp')">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative z-10 text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-amber-500 mb-6 heading-font">Joharudin Nordin</h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">Dynamic Hospitality Professional | Versatille Executive Chef</p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="#contact" class="bg-black hover:bg-white text-amber-600 px-6 py-3 rounded-full font-medium transition">Contact Me</a>
+                <a href="#portfolio" class="bg-black hover:bg-white text-amber-600 px-6 py-3 rounded-full font-medium transition">View Portfolio</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 left-0 right-0 text-center">
+            <a href="#about" class="text-white animate-bounce inline-block">
+                <i class="fas fa-chevron-down text-2xl"></i>
+            </a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">About Chef Joharudin</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 md:pr-10">
+                    <div class="relative">
+                        <img src="web_img/rn_image_picker_lib_temp_d27ca33a-dd6e-438a-a987-eea34deea8e0.webp" alt="Chef Joharudin" class="rounded-lg shadow-xl w-full">
+                        <div class="absolute -bottom-5 -right-5 bg-amber-700 text-white p-4 rounded-lg shadow-lg">
+                            <p class="text-xl font-bold">25+</p>
+                            <p class="text-sm">Years Experience</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-2/3">
+                    <h3 class="text-2xl font-bold mb-4 heading-font">A Chef by Choice, A Master by Experience</h3>
+                    <p class="text-amber-500 mb-6 leading-relaxed">
+                        Chef Joharudin is a dynamic hospitality professional and seasoned culinary expert with a proven track record in restaurant food service management. His expertise encompasses multiple F&B concepts, high-volume banqueting services, and multi-faceted upscale restaurants including luxury hotels and resorts.
+                    </p>
+                    <p class="text-amber-500 mb-6 leading-relaxed">
+                        Born with an innate passion for cooking and refined through decades of professional experience, Chef Joharudin combines traditional techniques with innovative approaches to create absolutely magical and total memorable dining experiences. His leadership in the kitchen is matched only by his commitment to mentoring the next generation of culinary professionals.
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8">
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full mr-3">
+                                <i class="fas fa-utensils text-amber-700"></i>
+                            </div>
+                            <span>Gourmet & Fusion Cuisine</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full mr-3">
+                                <i class="fas fa-users text-amber-700"></i>
+                            </div>
+                            <span>Team Leadership</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full mr-3">
+                                <i class="fas fa-chart-line text-amber-700"></i>
+                            </div>
+                            <span>Cost Control</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full mr-3">
+                                <i class="fas fa-flag text-amber-700"></i>
+                            </div>
+                            <span>Concept Development</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full mr-3">
+                                <i class="fas fa-award text-amber-700"></i>
+                            </div>
+                            <span>Quality Assurance</span>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="bg-white p-3 rounded-full mr-3">
+                                <i class="fas fa-lightbulb text-amber-700"></i>
+                            </div>
+                            <span>Menu Innovation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 bg-black">
+
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Professional Journey</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <div class="space-y-8">
+
+                    <!-- Timeline Item -->
+                    <div class="timeline-item relative pl-16">
+                        <div class="absolute left-0 top-0 bg-amber-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-hotel text-xl"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-amber-800 font-bold mb-1">General Manager of Operations - F&B / Executive Chef Consultant</h3>
+                                    <p class="text-amber-600 font-medium">Angel Wing Hospitality Group</p>
+                                </div>
+                                <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm">Dec 2020 - Present</span>
+                            </div>
+                            <p class="mt-3 text-gray-700">
+                                Managing daily operations of the company through strict enforcement coupled with high quality on-job training development, including an open-door policy while implementing 3F managerial style approach to ensure operational excellence across all company business properties.
+                            </p>
+                            <ul class="mt-3 list-disc list-inside text-gray-600 space-y-1">
+                                <li>Spearheaded comprehensive vendor supply networking & negotiation efforts, leading to a 15% decrease in food costs while maintaining quality standards; implemented menu engineering strategies that increased average check size by 10%.</li>
+                                <li>Directed strategic initiatives in finance, human resources, & customer relations, boosting guest satisfaction & loyalty metrics by 30%, orchestrated successful marketing campaign.</li>
+                                <li>Developed and implemented a profitable business strategy resulting in a 50% increase in shareholder value by expanding market reach & diversifying product offerings.</li>
+                                <li>Saved 35% in food costs for the year by ordering meat & fresh produce from local vendors & farmers, cutting transportation expenses, & improving delivery times.</li>
+                                <li>Increased food & beverage revenues by 15% year-to-year for three consecutive years.</li>
+                                <li>Motivated back & front of house staffs to ensure cohesive kitchen operations & increased staffs productivity performance.</li>
+                                <li>Provider of a uniquely unforgettable dining experience to food lovers from all walks of life.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item -->
+                    <div class="timeline-item relative pl-16">
+                        <div class="absolute left-0 top-0 bg-amber-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-utensils text-xl"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-amber-800 font-bold mb-1">Senior Chef Manager / Executive Chef</h3>
+                                    <p class="text-amber-600 font-medium">Leading Resorts, Hotels & Upscale Restaurants</p>
+                                </div>
+                                <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm">Jul 2003 - Nov 2020</span>
+                            </div>
+                            <p class="mt-3 text-gray-700">
+                                Worked as director of kitchens, executive chef, culinary director of innovation, and executive sous chef at leading luxury hospitality industry groups encompassing upscale restaurant food services, hotels and posh resorts locally and abroad.
+                            </p>
+                            <ul class="mt-3 list-disc list-inside text-gray-600 space-y-1">
+                                <li>Instrumental for the success of elevating overall food quality within food-service restaurant outlets including progressive new menu creativity of to ensure absolute unforgettable guest satisfaction.</li>
+                                <li>Demonstrated expertise in creating new revenue streams including developing kitchen procedures.</li>
+                                <li>Managed kitchen managers, designed kitchen layout, and controlling kitchen costs.</li>
+                                <li>Produced teams that constantly and consistently increased productivity, generated high profitability growth, created steady clientele & decreased staff turnover, reducing spoilage & increased the investor shares values.</li>
+                                <li>Controlled food cost at below 34% & maintained labor cost at below 7%, reduced spoilage, prepares all kitchen reports and staffs rota approval.</li>
+                                <li>Increased productivity, efficiency, and market opportunity to enhance stakeholder share value.</li>
+                                <li>Produced teams that constantly and consistently increased productivity, generated high profitability growth, and created steady clientele.</li>
+                                <li>Managed people of multicultural respect among all kitchen employees including front-of-house staff background, via strong work ethics, adaptability, flexibility, sense of ownership and entrepreneurial mindset to ensure flawless daily kitchen operations.</li>
+                                <li>Combined creative culinary skills with administrative acumen to elevate the dining experience, maintained this company reputation and contributed to its profitability.</li>
+                                <li>Delivered 100% service excellence via continuous staff productivity performance maximization to enhance profitability growth.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item -->
+                    <div class="timeline-item relative pl-16">
+                        <div class="absolute left-0 top-0 bg-amber-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-glass-cheers text-xl"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-amber-800 font-bold mb-1">Corporate Chef</h3>
+                                    <p class="text-amber-600 font-medium">Gourmet Concepts International</p>
+                                </div>
+                                <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm">May 2000 - Jun 2003</span>
+                            </div>
+                            <p class="mt-3 text-gray-700">
+                                Oversaw culinary operations for 12 restaurant concepts across Southeast Asia, Africa, South America, Europe.
+                            </p>
+                            <ul class="mt-3 list-disc list-inside text-gray-600 space-y-1">
+                                <li>Conceptualized and launched 4 successful restaurant brands.</li>
+                                <li>Implemented cross-training program increasing kitchen efficiency.</li>
+                                <li>Reduced food costs by 15% through vendor negotiations.</li>
+                                <li>Fostered positive & collaborative work environment by promoting teamwork, communication, & mutual respect among all kitchen employees including front-of-house staff members.</li>
+                                <li>Resolved conflicts, trouble shot issues with innovative solution, increasing productivity, efficiency, market opportunity to enhance stakeholder share values.</li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Timeline Item -->
+                    <div class="timeline-item relative pl-16">
+                        <div class="absolute left-0 top-0 bg-amber-600 text-white rounded-full w-12 h-12 flex items-center justify-center">
+                            <i class="fas fa-briefcase text-xl"></i>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <h3 class="text-amber-800 font-bold mb-1">Head Chef, Chefs & Cook</h3>
+                                    <p class="text-amber-600 font-medium">Gourmet Restaurants, Hotels & Resorts</p>
+                                </div>
+                                <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm">Dec 1992 - Apr 2000</span>
+                            </div>
+                            <p class="mt-3 text-gray-700">
+                                Held diverse roles of backhouse crew from F&B - culinary / kitchen rank & files positions until Head Chef designation ever since year 1992.
+                            </p>
+                            <ul class="mt-3 list-disc list-inside text-gray-600 space-y-1">
+                                <li>Demonstrated chef supervision of kitchen operations & participated & involved in kitchen administrative duties including cost management.</li>
+                                <li>Monitored line cooks, junior cooks, & kitchen helpers activities.</li>
+                                <li>Managed backhouse staffs to execute food preparation & monitor cooking session.</li>
+                                <li>Exhibited effective direction as for flawless kitchen operations to several cooks on day-to-day basis.</li>
+                                <li>Maintained backhouse operation efficiency whilst boosting staff productivity & delivered exceptional customer satisfaction.</li>
+                                <li>Demonstrated exceptional guest service coupled with premium standard of the Absolute Magical & Total Memorable Dining Experience that made a huge impact to the local community.</li>
+                                <li>Developed standardized recipes and training programs that improved consistency and reduced staff turnover by 35%.</li>
+                                
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Culinary Expertise</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-300">Mastery across diverse culinary disciplines and management competencies</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+                <div>
+                    <h3 class="text-xl font-bold mb-6 heading-font">Culinary Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-amber-500">European Fusion Cuisine</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-amber-500">Asian / Southeast Asian Fusion Cuisine</span>
+                                <span>97%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 97%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-amber-500">Molecular Gastronomy</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-amber-500">Mediterranean Cuisine</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-6 heading-font">Management Skills</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-amber-500">Team Leadership</span>
+                                <span>95%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-amber-500">Cost Control</span>
+                                <span>97%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 97%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-amber-500">Menu Development</span>
+                                <span>96%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 96%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-amber-500">Vendor Relations</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="bg-white p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-amber-600 mb-2">150+</div>
+                    <div class="text-gray-600">Team Members Led</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-amber-600 mb-2">12</div>
+                    <div class="text-gray-600">Restaurant Concepts</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-amber-600 mb-2">10</div>
+                    <div class="text-gray-600">Awards Won</div>
+                </div>
+                <div class="bg-white p-6 rounded-lg">
+                    <div class="text-4xl font-bold text-amber-600 mb-2">5000+</div>
+                    <div class="text-gray-600">Meals Served Daily</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Culinary Creations</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-300">A showcase of signature dishes and culinary concepts developed throughout his career</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dish 1 -->
+                <div class="dish-card relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="web_img/IMG_20250525_215100.png"
+                    alt="Asian / Southeast Asian Fusion Cuisine" class="w-full h-63 object-cover">
+                    <div class="dish-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Umami Shells</h3>
+                        <p class="text-gray-300 mb-4">Delicate blend of steamed mussels infused with bright yuzu, finished with earthy truffle oil and a touch of melted Parmesan</p>
+                        <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm self-start">Signature Starter</span>
+                    </div>
+                </div>
+                
+                <!-- Dish 2 -->
+                <div class="dish-card relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="web_img/IMG_150708319.png"
+                     alt="Asian / Southeast Asian Fusion Cuisine" class="w-full h-63 object-cover"> 
+                    <div class="dish-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Limbo Chix Yakitori</h3>
+                        <p class="text-gray-300 mb-4">Contemporary interpretation of traditional flavors with green chili sauce</p>
+                        <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm self-start">Guests Favorite</span>
+                    </div>
+                </div>
+                
+                <!-- Dish 3 -->
+                <div class="dish-card relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="web_img/IMG_158393077.png" alt="Molecular Gastronomy" class="w-full h-63 object-cover">
+                    <div class="dish-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Gamgag Norweigian Fish</h3>
+                        <p class="text-gray-300 mb-4">Norweigian salmon with molecular gastronomy elements</p>
+                        <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm self-start">Award Winner</span>
+                    </div>
+                </div>
+                
+                <!-- Dish 4 -->
+                <div class="dish-card relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="web_img/325898_948657.webp" alt="European Fusion Cuisine" class="w-full h-63 object-cover">
+                    <div class="dish-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Infujiza Lobster</h3>
+                        <p class="text-gray-300 mb-4">Butter seared oceanic lobster with caviar and nage</p>
+                        <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm self-start">Signature Seafood</span>
+                    </div>
+                </div>
+                
+                <!-- Dish 5 -->
+                <div class="dish-card relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="web_img/IMG_158037159.png" alt="European Fusion Cuisine" class="w-full h-63 object-cover">
+                    <div class="dish-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Black Forest Angus</h3>
+                        <p class="text-gray-300 mb-4">Angus beef 48-hours sous vide preparation with delectable baby tomato salad and potato puree</p>
+                        <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm self-start">Signature Meat</span>
+                    </div>
+                </div>
+                
+                <!-- Dish 6 -->
+                <div class="dish-card relative rounded-lg overflow-hidden shadow-lg">
+                    <img src="web_img/IMG_158057093.png" alt="Dessert" class="w-full h-63 object-cover">
+                    <div class="dish-overlay absolute inset-0 bg-black bg-opacity-70 flex flex-col justify-end p-6">
+                        <h3 class="text-xl font-bold text-white mb-2">Deconstructed Tiramisu</h3>
+                        <p class="text-gray-300 mb-4">Modern interpretation with coffee soil, mascarpone cloud, and cocoa tuile</p>
+                        <span class="bg-amber-600 text-white px-3 py-1 rounded-full text-sm self-start">Innovative</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Signature Menu Section -->
+    <section id="menu" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Signature Menu</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-300">A curated selection of Chef Joharudin's most celebrated creations</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 heading-font text-center md:text-left">Starters</h3>
+                        <div class="space-y-6">
+
+                            <!-- Menu Item 1 -->
+                            <div class="menu-item">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold">Umami Shells</h4>
+                                    <span class="font-bold text-amber-600"> $18</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-1">Mussels, truffle oil, yuzu & parmesan cheese</p>
+                            </div>
+                            
+                            <!-- Menu Item 2 -->
+                            <div class="menu-item">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold">Ocean Bounty Salmon</h4>
+                                    <span class="font-bold text-amber-600"> $16</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-1">Scottish salmon tartar, crisp rice & micro greens</p>
+                            </div>
+                            
+                            <!-- Menu Item 3 -->
+                            <div class="menu-item">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold">The Raw Deal</h4>
+                                    <span class="font-bold text-amber-600"> $14</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-1">Beef tartar, zucchine lattice, deviled egg <br>& sherry veal remoulade</p>
+                            </div>
+                            
+                            <!-- Menu Item 4 -->
+                            <div class="menu-item">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold">Infujiza Lobster</h4>
+                                    <span class="font-bold text-amber-600"> $12</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-1">Butter seared lobster, cauliflower ups around, <br> caviar on lobster bisque & nage</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 heading-font text-center md:text-left">Main Courses</h3>
+                        <div class="space-y-6">
+
+                            <!-- Menu Item 1 -->
+                            <div class="menu-item">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold">Limbo Chix Yakitori</h4>
+                                    <span class="font-bold text-amber-600">$32</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-1">Chicken heart yakitori, tare, micro greens, edible flower, <br> & green chili sauce</p>
+                            </div>
+                            
+                            <!-- Menu Item 2 -->
+                            <div class="menu-item">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold">Gamgag Norweigian Fish</h4>
+                                    <span class="font-bold text-amber-600">$46</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-1">Norweigian salmon wrapped in cabbage, beluga lentil, <br> white apple puree, bacon jam, cider jus & foam</p>
+                            </div>
+                            
+                            <!-- Menu Item 3 -->
+                            <div class="menu-item">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold">Root Vegetable Medley (V)</h4>
+                                    <span class="font-bold text-amber-600">$68</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-1">Heirloom vegetables, foraged herbs, smoked broth</p>
+                            </div>
+                            
+                            <!-- Menu Item 4 -->
+                            <div class="menu-item">
+                                <div class="flex justify-between items-start">
+                                    <h4 class="font-bold">Blissful Duck</h4>
+                                    <span class="font-bold text-amber-600">$48</span>
+                                </div>
+                                <p class="text-gray-500 text-sm mt-1">Duck, pea puree, maitake mushrooms, heirloom cauliflower, <br> curry crème, & ginger lemongrass</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-16 text-center">
+                    <a href="#contact" class="inline-block bg-amber-600 hover:bg-amber-700 text-white px-8 py-3 rounded-full font-medium transition">Request Full Menu</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Client Testimonials</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-300">What industry leaders and guests say about Chef Joharudin's work</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl">★</div>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Chef Joharudin transformed our culinary operations completely. His innovative menu concepts and rigorous standards elevated our restaurant to new heights, resulting in a 30% increase in repeat customers."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-600"> Michael Anthony </h4>
+                            <p class="text-gray-500 text-sm">CEO, Gourmet Holdings</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl">★</div>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Working with Chef Joharudin on our gala dinner was an absolute pleasure. His attention to detail and ability to execute flawless service for 800 guests was nothing short of remarkable."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-600">Sarah Lynn</h4>
+                            <p class="text-gray-500 text-sm">Event Director, Prestige Events</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card bg-white p-8 rounded-lg">
+                    <div class="flex items-center mb-4">
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl mr-2">★</div>
+                        <div class="text-amber-500 text-2xl">★</div>
+                    </div>
+                    <p class="text-gray-700 italic mb-6">"Chef Joharudin's leadership in our kitchen brigade has been transformative. His mentorship program has developed 15 sous chefs who have gone on to successful careers in top restaurants worldwide."</p>
+                    <div class="flex items-center">
+                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="w-12 h-12 rounded-full mr-4">
+                        <div>
+                            <h4 class="font-bold text-amber-600">Jimmy Paul Wilshire</h4>
+                            <p class="text-gray-500 text-sm">Chief Operating Officer, Angel Wing Hospitality Group</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 heading-font">Get In Touch</h2>
+                <div class="w-20 h-1 bg-amber-600 mx-auto"></div>
+                <p class="mt-4 max-w-2xl mx-auto text-gray-300">For consulting inquiries, collaborations, or speaking engagements</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 heading-font">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="bg-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-envelope text-amber-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Email</h4>
+                                    <a href="mailto:joharudinnordin@yandex.ru" class="text-gray-500 hover:text-amber-600 transition">joharudinnordin@yandex.ru</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-phone text-amber-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Phone</h4>
+                                    <a href="tel:+60123456789" class="text-gray-500 hover:text-amber-600 transition">+60 11 2155 8170</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="bg-white p-3 rounded-full mr-4">
+                                    <i class="fas fa-map-marker-alt text-amber-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">Available In</h4>
+                                    <p class="text-gray-600 hover:text-amber-600 transition">Southeast Asia / Worldwide</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="font-bold mb-4">Follow Chef Joharudin On</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.instagram.com/blissful_joyful_johar/?igsh=cWh2dGlodTg1MTRo" target="_blank" class="bg-gray-100 hover:bg-amber-600 text-gray-800 p-3 rounded-full transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@blissfuljoyful_jo" target="_blank" class="bg-gray-100 hover:bg-amber-600 text-gray-800 p-3 rounded-full transition">
+                                    <i class="fa-brands fa-tiktok"></i>
+                                </a>
+                                <a href="https://www.behance.net/joharudinnordin" target="_blank" class="bg-gray-100 hover:bg-amber-600 text-gray-800 p-3 rounded-full transition">
+                                    <i class="fa-brands fa-behance"></i>
+                                </a>
+                                <a href="https://www.facebook.com/wanjoharudinblissful?rdid=jOt1bn8WN5ogX99B&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F14NFHqxWGZ#" target="_blank" class="bg-gray-100 hover:bg-amber-600 text-gray-800 p-3 rounded-full transition">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                </a>
+                                <a href="https://angel-wing-hospitality.mystrikingly.com/" target="_blank" class="bg-gray-100 hover:bg-amber-600 text-gray-800 p-3 rounded-full transition">
+                                    <i class="fa-solid fa-user"></i>
+                                </a>
+                                   
+                            </div>
+                        </div>
+                    </div>
+                    
+                   <div>
+                        <form action="https://api.web3forms.com/submit" method="POST" class="contact">
+                          
+                            <div>
+                                <input type="hidden" name="access_key" value="9921b049-3a8a-4093-bf6b-aadd8755774e">
+                                
+                                <label for="name" class="block font-medium mb-2">Full Name</label>
+                                <input type="text" name="name" placeholder="Your Name" required 
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800">
+
+                                <label for="email" class="block font-medium mb-2">Email Address</label>
+                                <input type="email" name="email" placeholder="Your Email" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800">
+
+                                <label for="subject" class="block font-medium mb-2">Subject</label>
+                                <input type="text" name="subject" placeholder="Subject" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800">
+
+                                <label for="message" class="block font-medium mb-2">Message</label>
+                                <textarea name="massage" rows="4" placeholder="Your message" required
+                                class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-amber-500 text-gray-800 text-gray-800"></textarea>
+
+                               <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white px-6 py-3 rounded-full font-medium transition">Send Message</button>
+                               </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-gray-900 bg-black text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="text-2xl font-bold heading-font text-amber-500 mb-4 md:mb-0">Chef Joharudin</div>
+                <div class="flex space-x-6">
+                    <a href="#about" class="hover:text-amber-400 transition">About</a>
+                    <a href="#experience" class="hover:text-amber-400 transition">Experience</a>
+                    <a href="#portfolio" class="hover:text-amber-400 transition">Portfolio</a>
+                    <a href="#contact" class="hover:text-amber-400 transition">Contact</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-900 mt-8 pt-8 text-center md:text-left">
+                <p> &copy; 2023 Chef Joharudin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        });
+
+        // Animate skill bars on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            
+            const animateSkillBars = () => {
+                skillBars.forEach(bar => {
+                    const width = bar.style.width;
+                    bar.style.width = '0';
+                    setTimeout(() => {
+                        bar.style.width = width;
+                    }, 100);
+                });
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateSkillBars();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            const skillsSection = document.getElementById('skills');
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+        });
+    </script>
+</body>
+</html>
